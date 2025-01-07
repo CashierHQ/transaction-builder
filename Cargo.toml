@@ -8,7 +8,6 @@ description = "A utility library for handling transactions."
 repository = "https://github.com/CashierHQ/transaction-utils"
 readme = "README.md"
 keywords = ["icrc1", "icp", "canister", "ledger", "candid"]
-categories = ["Parsing tools"]
 
 [dependencies]
 base64 = "0.22.1"
