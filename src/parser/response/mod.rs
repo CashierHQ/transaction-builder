@@ -1,13 +1,31 @@
 use base64::{engine::general_purpose, Engine};
 use candid::Decode;
 use icrc_ledger_types::icrc1::transfer::{BlockIndex, TransferError};
+/// A struct representing the response containing a base64-encoded content map.
 pub struct Response {
     pub content_map: String,
 }
 
+/// The result type for a transfer, which can either be a `BlockIndex` or a `TransferError`.
 pub type TransferResult = Result<BlockIndex, TransferError>;
 
-pub fn parse_icrc1_response(response: Response) -> TransferResult {
+/// Parses an ICRC1 transfer response.
+///
+/// This function takes a `Response` input, decodes the base64-encoded content map,
+/// and deserializes it into a `TransferResult`.
+///
+/// # Arguments
+///
+/// * `response` - The `Response` containing the base64-encoded content map.
+///
+/// # Returns
+///
+/// A `TransferResult` which is either a `BlockIndex` or a `TransferError`.
+///
+/// # Panics
+///
+/// This function will panic if the base64 decoding or deserialization fails.
+pub fn parse_icrc1_transfer_response(response: Response) -> TransferResult {
     // Decode the base64 string to bytes
     let result_bytes = general_purpose::STANDARD
         .decode(response.content_map)
@@ -31,7 +49,7 @@ mod tests {
             content_map: content_map.to_string(),
         };
 
-        let result = parse_icrc1_response(response);
+        let result = parse_icrc1_transfer_response(response);
 
         assert_eq!(result.is_err(), true);
     }
@@ -43,7 +61,7 @@ mod tests {
             content_map: content_map.to_string(),
         };
 
-        let result = parse_icrc1_response(response);
+        let result = parse_icrc1_transfer_response(response);
 
         assert_eq!(result.is_ok(), true);
     }

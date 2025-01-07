@@ -4,6 +4,16 @@ use candid::Encode;
 
 use crate::types::CanisterCall;
 
+/// Builds an ICRC1 transfer canister call.
+///
+/// # Arguments
+///
+/// * `canister_id` - The ID of the canister to call.
+/// * `transfer_arg` - The transfer arguments.
+///
+/// # Returns
+///
+/// A `CanisterCall` struct containing the canister ID, method name, and encoded arguments.
 pub fn build_icrc1_transfer(
     canister_id: String,
     transfer_arg: icrc_ledger_types::icrc1::transfer::TransferArg,

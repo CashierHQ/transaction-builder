@@ -3,8 +3,12 @@ name = "transaction-utils"
 version = "0.1.0"
 edition = "2021"
 authors = ["Long Tran <long.tran@cashierapp.io>"]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT OR Apache-2.0"
+description = "A utility library for handling transactions."
+repository = "https://github.com/CashierHQ/transaction-utils"
+readme = "README.md"
+keywords = ["icrc1", "icp", "canister", "ledger"]
+categories = ["ic_cdk", "icp", "blockchain", "ledger"]
 
 [dependencies]
 base64 = "0.22.1"
