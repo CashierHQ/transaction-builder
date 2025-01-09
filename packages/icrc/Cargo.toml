@@ -1,0 +1,16 @@
+[package]
+name = "ic-icrc-tx"
+version = "0.1.0"
+edition = "2021"
+authors = ["Long Tran <long.tran@cashierapp.io>"]
+license = "MIT OR Apache-2.0"
+description = "A utility library for building and parse icrc transactions"
+repository = "https://github.com/CashierHQ/transaction-utils"
+readme = "README.md"
+keywords = ["icrc1", "icp", "canister", "ledger", "candid"]
+
+[dependencies]
+base64 = "0.22.1"
+candid = "0.10"
+icrc-ledger-types = "0.1.6"
+serde = "1.0.210"
